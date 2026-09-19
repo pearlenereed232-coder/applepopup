@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const os = require('os');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -12,6 +13,24 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+function getLocalIp() {
+    const interfaces = os.networkInterfaces();
+    for (const name of Object.keys(interfaces)) {
+        for (const net of interfaces[name]) {
+            if (net.family === 'IPv4' && !net.internal) {
+                return net.address;
+            }
+        }
+    }
+    return 'localhost';
+}
+
+app.listen(PORT, '0.0.0.0', () => {
+    const localIp = getLocalIp();
+    console.log(`\n==================================================`);
+    console.log(`Server running!`);
+    console.log(`Local Access:   http://localhost:${PORT}`);
+    console.log(`Wi-Fi Access:   http://${localIp}:${PORT}`);
+    console.log(`==================================================\n`);
 });
+

